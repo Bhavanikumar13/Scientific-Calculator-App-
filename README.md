@@ -4,12 +4,6 @@ A high-fidelity, multi-platform replication of the physical **Casio fx-991EX Cla
 
 ---
 
-## 📸 Interface Preview
-
-![Calculator Interface](..python/screenshot.png) 
-
----
-
 ## 🛠️ Technology Stack
 
 | Platform / Engine | Technologies Used | Core Responsibilities |
