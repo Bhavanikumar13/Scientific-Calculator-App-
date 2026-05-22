@@ -6,9 +6,7 @@ A high-fidelity, multi-platform replication of the physical **Casio fx-991EX Cla
 
 ## 📸 Interface Preview
 
-Below is a snapshot of the high-fidelity Python desktop interface replicating the ClassWiz casing, retro greenish-grey LCD screen, and key layouts:
-
-![Casio fx-991EX Interface](file:///c:/SUMMER%20PROJECTS/calculator/python/screenshot.png) *(Note: Please ensure the GUI screenshot is placed in this folder to load natively)*
+![Calculator Interface](calculator/python/screenshot.png) 
 
 ---
 
