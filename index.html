@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casio ClassWiz Scientific Calculator</title>
+  <!-- Google Fonts for digital screen and premium labels -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Utility Buttons for Casing Features (Theme, History, Help) -->
+    <div class="casing-utilities">
+      <button id="theme-toggle" class="util-btn" title="Toggle Dark/Light Mode">
+        <span class="icon">🌓</span> <span class="label">Theme</span>
+      </button>
+      <button id="history-toggle" class="util-btn" title="View Calculation History">
+        <span class="icon">📜</span> <span class="label">History</span>
+      </button>
+    </div>
+
+    <!-- The Calculator Body -->
+    <div class="calculator-body" id="calculator">
+      <!-- Casing Texture Accent -->
+      <div class="carbon-texture"></div>
+
+      <!-- Top Section: Brand Name, Solar Panel, Model Number -->
+      <div class="top-panel">
+        <div class="brand-info">
+          <div class="brand-name">CASIO</div>
+          <div class="brand-model">fx-991EX</div>
+          <div class="brand-class">CLASSWIZ</div>
+        </div>
+        <div class="solar-panel">
+          <div class="solar-grid"></div>
+          <div class="solar-grid"></div>
+          <div class="solar-grid"></div>
+          <div class="solar-grid"></div>
+        </div>
+      </div>
+
+      <!-- Screen Section -->
+      <div class="screen-container">
+        <!-- Status Indicator Bar -->
+        <div class="status-bar">
+          <span id="indicator-shift" class="indicator">S</span>
+          <span id="indicator-alpha" class="indicator">A</span>
+          <span id="indicator-memory" class="indicator">M</span>
+          <span id="indicator-angle" class="indicator-active">D</span>
+          <span id="indicator-math" class="indicator-active">Math</span>
+        </div>
+
+        <!-- LCD Display Lines -->
+        <div class="lcd-display">
+          <div class="display-wrapper">
+            <span id="cursor" class="cursor-line">|</span>
+            <div id="expression-display" class="expr-line"></div>
+          </div>
+          <div id="result-display" class="result-line">0</div>
+        </div>
+      </div>
+
+      <!-- Dynamic Mode Indicator Box (e.g. RAD, DEG, SETUP) -->
+      <div class="sub-status">
+        <span class="mode-label">NATURAL-V.P.A.M.</span>
+      </div>
+
+      <!-- Keypad Grid -->
+      <div class="keypad">
+
+        <!-- Row 1: Modifier Keys + D-Pad -->
+        <div class="row row-modifiers">
+          <div class="btn-container" data-label="SHIFT" data-color="yellow">
+            <button class="calc-btn btn-modifier btn-shift" id="btn-shift" data-value="SHIFT">SHIFT</button>
+          </div>
+          <div class="btn-container" data-label="ALPHA" data-color="red">
+            <button class="calc-btn btn-modifier btn-alpha" id="btn-alpha" data-value="ALPHA">ALPHA</button>
+          </div>
+
+          <!-- Direction Pad -->
+          <div class="d-pad-container">
+            <div class="d-pad">
+              <button class="d-btn d-up" id="btn-up" data-value="UP" title="Scroll Up">▲</button>
+              <button class="d-btn d-left" id="btn-left" data-value="LEFT" title="Move Left">◀</button>
+              <div class="d-center"></div>
+              <button class="d-btn d-right" id="btn-right" data-value="RIGHT" title="Move Right">▶</button>
+              <button class="d-btn d-down" id="btn-down" data-value="DOWN" title="Scroll Down">▼</button>
+            </div>
+          </div>
+
+          <div class="btn-container" data-label="MENU" data-color="white">
+            <button class="calc-btn btn-modifier btn-menu" id="btn-menu" data-value="MENU">MENU</button>
+          </div>
+          <div class="btn-container" data-label="ON" data-color="white">
+            <button class="calc-btn btn-modifier btn-on" id="btn-on" data-value="ON">ON</button>
+          </div>
+        </div>
+
+        <!-- Row 2: Scientific Functions Block 1 -->
+        <div class="row row-scientific">
+          <!-- x^-1 / (x!) -->
+          <div class="btn-container" data-label="x!" data-color="yellow" data-label-alpha="x⁻¹" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="x^-1">x⁻¹</button>
+          </div>
+          <!-- nCr / (nPr) -->
+          <div class="btn-container" data-label="nPr" data-color="yellow" data-label-alpha="nCr" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="nCr">nCr</button>
+          </div>
+          <!-- fraction / (mixed fraction) -->
+          <div class="btn-container" data-label="a b/c" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="fraction">■/□</button>
+          </div>
+          <!-- square root / (cube root) -->
+          <div class="btn-container" data-label="³√" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="sqrt">√</button>
+          </div>
+          <!-- square / (cube) -->
+          <div class="btn-container" data-label="x³" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="x^2">x²</button>
+          </div>
+          <!-- power / (root x) -->
+          <div class="btn-container" data-label="ʸ√" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="^">xʸ</button>
+          </div>
+        </div>
+
+        <!-- Row 3: Scientific Functions Block 2 -->
+        <div class="row row-scientific">
+          <!-- log / (10^x) -->
+          <div class="btn-container" data-label="10ˣ" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="log">log</button>
+          </div>
+          <!-- ln / (e^x) -->
+          <div class="btn-container" data-label="eˣ" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="ln">ln</button>
+          </div>
+          <!-- negative / (pi) -->
+          <div class="btn-container" data-label="(-)" data-color="white" data-label-alpha="A" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="(-)">(-)</button>
+          </div>
+          <!-- degrees-minutes-seconds / (arrow) -->
+          <div class="btn-container" data-label="° ' &quot;" data-color="white" data-label-alpha="B"
+            data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="dms">°′″</button>
+          </div>
+          <!-- hyp / (absolute) -->
+          <div class="btn-container" data-label="abs" data-color="yellow" data-label-alpha="C" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="hyp">hyp</button>
+          </div>
+          <!-- sin / (asin) -->
+          <div class="btn-container" data-label="sin⁻¹" data-color="yellow" data-label-alpha="D" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="sin">sin</button>
+          </div>
+        </div>
+
+        <!-- Row 4: Scientific Functions Block 3 -->
+        <div class="row row-scientific">
+          <!-- cos / (acos) -->
+          <div class="btn-container" data-label="cos⁻¹" data-color="yellow" data-label-alpha="E" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="cos">cos</button>
+          </div>
+          <!-- tan / (atan) -->
+          <div class="btn-container" data-label="tan⁻¹" data-color="yellow" data-label-alpha="F" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="tan">tan</button>
+          </div>
+          <!-- recall / (sto) -->
+          <div class="btn-container" data-label="STO" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="RCL">RCL</button>
+          </div>
+          <!-- engineering / (arrow) -->
+          <div class="btn-container" data-label="←" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="ENG">ENG</button>
+          </div>
+          <!-- open parenthesis / (variable X) -->
+          <div class="btn-container" data-label="{" data-color="yellow" data-label-alpha="X" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="(">(</button>
+          </div>
+          <!-- close parenthesis / (variable Y) -->
+          <div class="btn-container" data-label="}" data-color="yellow" data-label-alpha="Y" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value=")">)</button>
+          </div>
+        </div>
+
+        <!-- Row 5: Scientific Functions Block 4 -->
+        <div class="row row-scientific">
+          <!-- S<=>D (fraction-decimal toggle) -->
+          <div class="btn-container" data-label="a/b <=> d" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="SD">S⇔D</button>
+          </div>
+          <!-- M+ / (M-) / (variable M) -->
+          <div class="btn-container" data-label="M-" data-color="yellow" data-label-alpha="M" data-color-alpha="red">
+            <button class="calc-btn btn-sci" data-value="M+">M+</button>
+          </div>
+          <!-- empty spaces or mode settings shortcut keys for visual layout -->
+          <div class="btn-container" data-label="DRG" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="DRG">DRG</button>
+          </div>
+          <div class="btn-container" data-label="CONST" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="CONST">CONST</button>
+          </div>
+          <div class="btn-container" data-label="CONV" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="CONV">CONV</button>
+          </div>
+          <div class="btn-container" data-label="CLR" data-color="yellow">
+            <button class="calc-btn btn-sci" data-value="CLR">CLR</button>
+          </div>
+        </div>
+
+        <!-- Row 6: Standard Keyboard Grid (Numbers, Ops, Action Keys) -->
+        <div class="row row-digits">
+          <button class="calc-btn btn-digit" data-value="7">7</button>
+          <button class="calc-btn btn-digit" data-value="8">8</button>
+          <button class="calc-btn btn-digit" data-value="9">9</button>
+          <button class="calc-btn btn-action btn-del" data-value="DEL">DEL</button>
+          <button class="calc-btn btn-action btn-ac" data-value="AC">AC</button>
+        </div>
+
+        <!-- Row 7: Standard Keyboard Grid -->
+        <div class="row row-digits">
+          <button class="calc-btn btn-digit" data-value="4">4</button>
+          <button class="calc-btn btn-digit" data-value="5">5</button>
+          <button class="calc-btn btn-digit" data-value="6">6</button>
+          <button class="calc-btn btn-operator" data-value="*">×</button>
+          <button class="calc-btn btn-operator" data-value="/">÷</button>
+        </div>
+
+        <!-- Row 8: Standard Keyboard Grid -->
+        <div class="row row-digits">
+          <button class="calc-btn btn-digit" data-value="1">1</button>
+          <button class="calc-btn btn-digit" data-value="2">2</button>
+          <button class="calc-btn btn-digit" data-value="3">3</button>
+          <button class="calc-btn btn-operator" data-value="+">+</button>
+          <button class="calc-btn btn-operator" data-value="-">−</button>
+        </div>
+
+        <!-- Row 9: Standard Keyboard Grid -->
+        <div class="row row-digits">
+          <button class="calc-btn btn-digit" data-value="0">0</button>
+          <div class="btn-container" data-label="i" data-color="yellow">
+            <button class="calc-btn btn-digit" data-value=".">.</button>
+          </div>
+          <div class="btn-container" data-label="π" data-color="yellow" data-label-alpha="e" data-color-alpha="red">
+            <button class="calc-btn btn-digit" data-value="*10^x">×10ˣ</button>
+          </div>
+          <div class="btn-container" data-label="PreAns" data-color="yellow">
+            <button class="calc-btn btn-digit" data-value="Ans">Ans</button>
+          </div>
+          <button class="calc-btn btn-operator btn-equals" data-value="=">=</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- History Slide-out Drawer -->
+    <div class="history-drawer" id="history-drawer">
+      <div class="history-header">
+        <h3>Calculation History</h3>
+        <button id="history-close" class="close-btn">&times;</button>
+      </div>
+      <div class="history-list" id="history-list">
+        <p class="empty-history-msg">No calculations saved yet.</p>
+      </div>
+      <div class="history-footer">
+        <button id="clear-history" class="clear-history-btn">Clear All</button>
+      </div>
+    </div>
+
+    <!-- Instructions / Help Overlay -->
+    <div class="instructions-panel">
+      <h3>Keyboard Shortcut Help</h3>
+      <div class="shortcuts-grid">
+        <div><kbd>0</kbd> - <kbd>9</kbd> : Numbers</div>
+        <div><kbd>.</kbd> : Decimal Point</div>
+        <div><kbd>+</kbd>, <kbd>-</kbd>, <kbd>*</kbd>, <kbd>/</kbd> : Operators</div>
+        <div><kbd>Enter</kbd> or <kbd>=</kbd> : Calculate</div>
+        <div><kbd>Backspace</kbd> : Delete Last (DEL)</div>
+        <div><kbd>Escape</kbd> : Clear All (AC)</div>
+        <div><kbd>s</kbd> : sin()</div>
+        <div><kbd>c</kbd> : cos()</div>
+        <div><kbd>t</kbd> : tan()</div>
+        <div><kbd>l</kbd> : ln()</div>
+        <div><kbd>g</kbd> : log10()</div>
+        <div><kbd>r</kbd> : Square Root</div>
+        <div><kbd>p</kbd> : Power (^)</div>
+        <div><kbd>Shift</kbd> : Toggle Shift mode</div>
+        <div><kbd>Alt</kbd> : Toggle Alpha mode</div>
+        <div><kbd>Arrow Keys</kbd> : Scroll display / Move Cursor</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

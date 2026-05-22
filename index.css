@@ -1,0 +1,610 @@
+/* Casio ClassWiz Premium Styling */
+:root {
+  --bg-gradient: linear-gradient(135deg, #111827 0%, #1e1b4b 50%, #030712 100%);
+  --calc-body-bg: #1c1e22;
+  --calc-border: #2d3139;
+  --lcd-bg-retro: #a2b997;
+  --lcd-text-retro: #162412;
+  --key-sci-bg: #373a40;
+  --key-digit-bg: #2d3035;
+  --key-action-bg: #e06038;
+  --key-equals-bg: #2b6cb0;
+  --text-primary: #f3f4f6;
+  --text-shift: #eab308;
+  --text-alpha: #ef4444;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+.light-theme {
+  --bg-gradient: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 50%, #d1d5db 100%);
+  --calc-body-bg: #e5e7eb;
+  --calc-border: #cbd5e1;
+  --lcd-bg-retro: #b6c3b0;
+  --lcd-text-retro: #1b2618;
+  --key-sci-bg: #cbd5e1;
+  --key-digit-bg: #f3f4f6;
+  --key-action-bg: #e06a48;
+  --key-equals-bg: #3182ce;
+  --text-primary: #1f2937;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+body {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-primary);
+  overflow-y: auto;
+  transition: background 0.4s ease;
+  padding: 20px 10px;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Utility Bar */
+.casing-utilities {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.util-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.util-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Calculator Body Casing */
+.calculator-body {
+  background: var(--calc-body-bg);
+  border: 4px solid var(--calc-border);
+  border-radius: 24px;
+  padding: 24px 20px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 25px 50px -12px var(--shadow-color), inset 0 2px 4px rgba(255,255,255,0.05);
+  overflow: hidden;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.carbon-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%),
+                    radial-gradient(circle, #fff 10%, transparent 11%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+/* Top Branding & Solar Panel */
+.top-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 8px;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+}
+
+.brand-model {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.brand-class {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #475569;
+}
+
+.solar-panel {
+  background: #3e200c;
+  border: 2px solid #1a0f07;
+  border-radius: 4px;
+  height: 28px;
+  width: 100px;
+  display: flex;
+  padding: 2px;
+  gap: 2px;
+}
+
+.solar-grid {
+  flex: 1;
+  background: #110904;
+  border-radius: 1px;
+  opacity: 0.9;
+}
+
+/* LCD Display */
+.screen-container {
+  background: var(--lcd-bg-retro);
+  border: 4px solid #1c1e22;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.status-bar {
+  display: flex;
+  gap: 12px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(26, 37, 24, 0.35);
+  margin-bottom: 4px;
+  height: 14px;
+}
+
+.status-bar span.active {
+  color: var(--lcd-text-retro);
+  font-weight: 700;
+}
+
+.lcd-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 64px;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--lcd-text-retro);
+}
+
+.display-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbars */
+}
+.display-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.expr-line {
+  font-size: 1.15rem;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.cursor-line {
+  position: absolute;
+  font-size: 1.15rem;
+  font-weight: 100;
+  animation: blink 1s step-end infinite;
+  pointer-events: none;
+  color: var(--lcd-text-retro);
+  left: 0;
+}
+
+.result-line {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sub-status {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.mode-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #4a5568;
+  letter-spacing: 1px;
+}
+
+/* Keypad Layout */
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.row-digits {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Key Containers for yellow/red labels */
+.btn-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Modifier Labels printed above keys */
+.btn-container::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -12px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-shift);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.btn-container[data-label-alpha]::after {
+  content: attr(data-label-alpha);
+  position: absolute;
+  top: -12px;
+  right: 2px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--text-alpha);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* General Button style */
+.calc-btn {
+  width: 100%;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.4);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  outline: none;
+  font-size: 0.8rem;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* Specific button style categories */
+.btn-modifier {
+  height: 32px;
+  font-size: 0.7rem;
+  border-radius: 4px;
+}
+
+.btn-shift {
+  background: var(--key-sci-bg);
+  color: var(--text-shift);
+}
+
+.btn-alpha {
+  background: var(--key-sci-bg);
+  color: var(--text-alpha);
+}
+
+.btn-menu, .btn-on {
+  background: var(--key-sci-bg);
+  color: #fff;
+}
+
+/* D-Pad Circular Layout */
+.d-pad-container {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 48px;
+  margin-top: -8px;
+}
+
+.d-pad {
+  width: 80px;
+  height: 80px;
+  background: #2d3035;
+  border: 3px solid var(--calc-border);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+  display: grid;
+  grid-template-areas: 
+    ". up ."
+    "left center right"
+    ". down .";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.05);
+}
+
+.d-btn {
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.1s;
+}
+
+.d-btn:hover {
+  color: #fff;
+}
+
+.d-up { grid-area: up; }
+.d-left { grid-area: left; }
+.d-right { grid-area: right; }
+.d-down { grid-area: down; }
+
+.d-center {
+  grid-area: center;
+  background: #1c1e22;
+  border-radius: 50%;
+  margin: 4px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Scientific Keys Row */
+.btn-sci {
+  background: var(--key-sci-bg);
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+/* Digit Keys Grid */
+.btn-digit {
+  background: var(--key-digit-bg);
+  color: #fff;
+  font-size: 1.1rem;
+  height: 44px;
+}
+.light-theme .btn-digit {
+  color: var(--text-primary);
+}
+
+/* Action Keys (DEL, AC) */
+.btn-action {
+  background: var(--key-action-bg);
+  color: #fff;
+  font-size: 0.95rem;
+  height: 44px;
+}
+
+.btn-action:hover {
+  background: #f07048;
+}
+
+/* Equals and operators */
+.btn-operator {
+  background: var(--key-sci-bg);
+  color: #fff;
+  font-size: 1.1rem;
+  height: 44px;
+}
+
+.btn-equals {
+  background: var(--key-equals-bg);
+  color: #fff;
+  font-size: 1.2rem;
+  height: 44px;
+}
+
+.btn-equals:hover {
+  background: #3182ce;
+}
+
+/* Slide-out History Drawer */
+.history-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100%;
+  background: #1a1c20;
+  border-left: 2px solid var(--calc-border);
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  transition: right 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.history-drawer.open {
+  right: 0;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 10px;
+}
+
+.history-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.history-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.history-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.history-expr {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+.history-res {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #63b3ed;
+  text-align: right;
+}
+
+.empty-history-msg {
+  color: #718096;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.history-footer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 15px;
+}
+
+.clear-history-btn {
+  width: 100%;
+  background: #c53030;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.clear-history-btn:hover {
+  background: #e53e3e;
+}
+
+/* Keyboard Help Panel */
+.instructions-panel {
+  margin-top: 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+}
+
+.instructions-panel h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #94a3b8;
+}
+
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+kbd {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-family: monospace;
+  color: #cbd5e1;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
