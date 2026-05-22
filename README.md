@@ -6,7 +6,7 @@ A high-fidelity, multi-platform replication of the physical **Casio fx-991EX Cla
 
 ## 📸 Interface Preview
 
-![Calculator Interface](calculator/python/screenshot.png) 
+![Calculator Interface](..python/screenshot.png) 
 
 ---
 
